@@ -31,8 +31,6 @@ $module = new SetaPDF_Signer_Signature_Module_Cms();
 $module->setCertificate(file_get_contents('/var/www/layanan-integrasi/storage/app/public/signature/signature_file-baba-dummypub.pem'));
 // set the private key for the sign certificate
 $module->setPrivateKey([file_get_contents('/var/www/layanan-integrasi/storage/app/public/signature/signature_file-baba-dummykey.pem'), '12345678']);
-// pass the intermediate certificate(s)
-// $module->setExtraCertificates(SetaPDF_Signer_Pem::extractFromFile('intermediate-certificate.pem'));
 
 // create an instance of a time stamp module
 $tsModule = new SetaPDF_Signer_Timestamp_Module_Rfc3161_Curl($tsUrl);
@@ -44,11 +42,4 @@ if (isset($tsUsername)) {
 // Attach the module to the signer
 $signer->setTimestampModule($tsModule);
 
-// ltv
-$fieldName = $signer->addSignatureField()->getQualifiedName();
-$signer->setSignatureFieldName($fieldName);
-
-
 $signer->sign($module);
-
-//
