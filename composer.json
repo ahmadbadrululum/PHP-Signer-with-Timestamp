@@ -1,0 +1,10 @@
+{
+    "name": "bad/signer-php",
+    "authors": [
+        {
+            "name": "Ahmad  Badrul Ulum",
+            "email": "ahmadbadrul635@gmail.com"
+        }
+    ],
+    "require": {}
+}
